@@ -4,9 +4,6 @@ import (
 	"os"
 	"smtp2go-api-email/pkg"
 
-	"net/http"
-
-	rice "github.com/GeertJohan/go.rice"
 	"github.com/labstack/echo/v4"
 )
 
@@ -17,16 +14,12 @@ func main() {
 	// Initialize Echo
 	e := echo.New()
 
-	// Embed static files using go.rice
-	staticBox := rice.MustFindBox("static")
-	assetHandler := http.FileServer(staticBox.HTTPBox())
-
 	// Routes
 	e.GET("/", pkg.UploadPageHandler)
 	e.POST("/upload", pkg.UploadHandler)
 
-	// Serve embedded static files (CSS, JS, HTML, and CSV)
-	e.GET("/static/*", echo.WrapHandler(http.StripPrefix("/static/", assetHandler)))
+	// Serve static files
+	e.Static("/static", "static")
 
 	// Start server
 	e.Logger.Fatal(e.Start(":8080"))
