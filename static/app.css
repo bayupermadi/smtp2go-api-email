@@ -1,0 +1,119 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3366cc; /* Fallback background color */
+}
+
+/* Form Container */
+.form-container {
+    background-image: url('/static/image.png'); /* Replace with your uploaded background */
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    max-width: 800px;
+    height: 450px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Dark overlay */
+.form-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+    border-radius: 15px;
+}
+
+/* Form Content */
+.form-content {
+    position: relative;
+    z-index: 1;
+    width: 80%;
+    text-align: center;
+}
+
+.form-title {
+    color: #ffffff;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+}
+
+/* Form Rows */
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-row input {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 25px;
+    outline: none;
+    font-size: 1rem;
+    text-align: center;
+    color: #333;
+}
+
+.form-row input::placeholder {
+    color: #aaa;
+}
+
+/* File Upload Styling */
+input[type="file"] {
+    background: #f0f0f0;
+    padding: 0.6rem;
+    border-radius: 25px;
+    text-align: center;
+}
+
+/* Submit Button */
+.submit-btn {
+    background-color: #ff4b5c;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background 0.3s ease-in-out;
+}
+
+.submit-btn:hover {
+    background-color: #e63946;
+}
+
+.download-link a {
+    color: #ffbb33;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.download-link a:hover {
+    color: #ffaa00;
+    text-decoration: underline;
+}

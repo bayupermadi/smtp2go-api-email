@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMTP2GO API Email Processor</title>
+    <link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-content">
+            <h2 class="form-title">SMTP2GO API Email Processor</h2>
+            <!-- Success/Error Message -->
+            {{if .Message}}
+            <div class="alert">{{.Message}}</div>
+            {{end}}
+
+            <!-- Upload Form -->
+            <form enctype="multipart/form-data" method="POST" action="/upload">
+                <div class="form-row">
+                    <input type="text" name="from" id="from" placeholder="From: sales@magicsoft-asia.com" required>
+                    <input type="text" name="template_id" id="template_id" placeholder="Template ID: 3485492" required>
+                </div>
+                <div class="form-row">
+                    <input type="file" name="file" id="file" accept=".csv" required>
+                </div>
+                <button type="submit" class="submit-btn">Upload and Send Emails</button>
+            </form>
+
+            <!-- Download Sample CSV -->
+            <div class="download-link">
+                <p style="color: #fff; margin-top: 1.5rem;">
+                    Need a sample CSV file? <a href="/static/sample.csv" download>Download here</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
